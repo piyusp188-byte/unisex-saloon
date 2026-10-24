@@ -169,6 +169,10 @@ button, input, textarea, select {
   overflow: hidden;
 }
 
+@media (max-width: 360px) {
+  .btn { white-space: normal; text-align: center; padding: 0.75rem 1.25rem; }
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 60%, var(--color-gold-deep) 100%);
   color: var(--color-text-inverse);

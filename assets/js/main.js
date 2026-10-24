@@ -222,11 +222,15 @@ function initCookieBanner() {
   const COOKIE_KEY = 'amarr_cookie_consent';
   if (localStorage.getItem(COOKIE_KEY)) return;
 
-  setTimeout(() => banner.classList.add('visible'), 1800);
+  setTimeout(() => {
+    banner.classList.add('visible');
+    document.body.classList.add('cookie-visible');
+  }, 1800);
 
   const dismiss = (accepted) => {
     localStorage.setItem(COOKIE_KEY, accepted ? 'accepted' : 'declined');
     banner.classList.remove('visible');
+    document.body.classList.remove('cookie-visible');
     setTimeout(() => banner.remove(), 600);
   };
 

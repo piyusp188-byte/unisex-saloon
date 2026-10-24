@@ -154,7 +154,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding: 5rem var(--space-xl) var(--space-xl);
+    padding: 4rem var(--space-xl) var(--space-xl);
     transform: translateX(100%);
     transition: transform var(--transition-smooth);
     overflow-y: auto;
@@ -164,6 +164,22 @@
   .nav-links.open {
     transform: translateX(0);
     box-shadow: -20px 0 60px rgba(0,0,0,0.7);
+  }
+
+  /* Overlay backdrop behind open drawer */
+  .nav-links::before {
+    content: '';
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    background: rgba(0,0,0,0.55);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .nav-links.open::before {
+    display: block;
   }
 
   .nav-link {
@@ -242,9 +258,16 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  padding-top: clamp(6rem, 12vw, 9rem);
+  padding-top: clamp(5rem, 10vw, 9rem);
   padding-bottom: clamp(4rem, 8vw, 7rem);
   max-width: 820px;
+}
+
+@media (max-width: 500px) {
+  .hero-content {
+    padding-top: clamp(4.5rem, 20vw, 6rem);
+    padding-bottom: 3rem;
+  }
 }
 
 .hero-badge-pill {
@@ -298,6 +321,17 @@
   margin-bottom: var(--space-xl);
 }
 
+@media (max-width: 420px) {
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .hero-trust-bar {
   display: flex;
   align-items: center;
@@ -322,6 +356,24 @@
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 600px) {
+  .hero-headline {
+    font-size: clamp(1.9rem, 6vw + 1rem, 2.5rem);
+    line-height: 1.15;
+    margin-bottom: var(--space-md);
+  }
+  .hero-subheading {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-lg);
+  }
+  .hero-badge-pill {
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    font-size: 0.7rem;
+  }
 }
 
 /* Video play/pause control — WCAG 2.2.2 */
@@ -848,9 +900,20 @@
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-whatsapp), var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), bottom var(--transition-smooth);
   text-decoration: none;
   animation: fab-pulse 3s ease-in-out infinite;
+}
+
+/* When cookie banner is visible, push FAB above it */
+.cookie-visible .fab-whatsapp {
+  bottom: calc(1.5rem + 120px);
+}
+
+@media (max-width: 600px) {
+  .cookie-visible .fab-whatsapp {
+    bottom: calc(1.5rem + 155px);
+  }
 }
 
 .fab-whatsapp:hover {
@@ -940,6 +1003,18 @@
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-md);
+}
+
+@media (max-width: 520px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  .footer-legal-links {
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
 }
 
 .footer-copy {
