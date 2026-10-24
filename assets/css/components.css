@@ -118,16 +118,20 @@
   gap: 5px;
   width: 44px; height: 44px;
   border-radius: var(--radius-md);
-  background: var(--color-gold-subtle);
-  border: var(--border-subtle);
+  background: rgba(21, 18, 16, 0.90);
+  border: 1px solid rgba(200, 169, 110, 0.50);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.55);
   cursor: pointer;
   padding: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  flex-shrink: 0;
 }
 
 .hamburger-line {
   display: block;
-  width: 20px; height: 2px;
-  background: var(--color-gold);
+  width: 22px; height: 2.5px;
+  background: var(--color-gold-light);
   border-radius: 2px;
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
@@ -900,20 +904,17 @@
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-whatsapp), var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), bottom var(--transition-smooth);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+              opacity var(--transition-smooth);
   text-decoration: none;
   animation: fab-pulse 3s ease-in-out infinite;
 }
 
-/* When cookie banner is visible, push FAB above it */
+/* Hide FAB while cookie banner is visible to avoid layout conflicts */
 .cookie-visible .fab-whatsapp {
-  bottom: calc(1.5rem + 120px);
-}
-
-@media (max-width: 600px) {
-  .cookie-visible .fab-whatsapp {
-    bottom: calc(1.5rem + 155px);
-  }
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.7);
 }
 
 .fab-whatsapp:hover {
