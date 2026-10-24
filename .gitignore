@@ -1,0 +1,14 @@
+# Dependencies / Environment
+.env
+.env.local
+*.log
+
+# Temporary processing scripts
+*.bat
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/

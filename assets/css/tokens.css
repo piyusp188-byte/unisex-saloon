@@ -1,0 +1,101 @@
+/* ==========================================================================
+   AMARR SALON — DESIGN TOKENS
+   Theme: Deep Noir & Warm Metallic Gold | Unisex Luxury Salon
+   ========================================================================== */
+
+:root {
+  /* --- Brand Color System --- */
+  --color-bg-base: #0a0807;            /* Deep noir base */
+  --color-bg-surface: #151210;         /* Card & section background */
+  --color-bg-surface-elevated: #1e1814; /* Elevated cards */
+  --color-bg-surface-subtle: #271f1a;  /* Hover highlights */
+
+  /* Warm Metallic Gold Accents */
+  --color-gold: #C8A96E;               /* Primary warm gold */
+  --color-gold-light: #E8C98A;         /* Bright highlight gold */
+  --color-gold-deep: #9A7040;          /* Deep bronze */
+  --color-gold-glow: rgba(200, 169, 110, 0.28);
+  --color-gold-subtle: rgba(200, 169, 110, 0.12);
+  --color-gold-border: rgba(200, 169, 110, 0.22);
+
+  /* Rich Warm Burgundy Secondary */
+  --color-burgundy: #5c1f2e;
+  --color-burgundy-light: #7d2d40;
+  --color-burgundy-glow: rgba(92, 31, 46, 0.40);
+
+  /* WhatsApp CTA */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1fb855;
+  --color-whatsapp-glow: rgba(37, 211, 102, 0.30);
+
+  /* Typography */
+  --color-text-primary: #FAF6F0;       /* Warm ivory */
+  --color-text-secondary: #C8B5A0;     /* Cashmere warm */
+  --color-text-muted: #8A7560;         /* Subtle warm grey */
+  --color-text-inverse: #0a0807;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(21, 18, 16, 0.82);
+  --glass-bg-card: rgba(30, 24, 20, 0.70);
+  --glass-blur: blur(18px);
+  --border-subtle: 1px solid rgba(200, 169, 110, 0.16);
+  --border-medium: 1px solid rgba(200, 169, 110, 0.32);
+  --border-glass: 1px solid rgba(255, 255, 255, 0.07);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 10px 32px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 22px 54px rgba(0, 0, 0, 0.75);
+  --shadow-gold: 0 8px 32px var(--color-gold-glow);
+  --shadow-whatsapp: 0 8px 24px var(--color-whatsapp-glow);
+
+  /* Typography Families */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Fluid Font Scale */
+  --text-xs:   clamp(0.75rem,  0.70rem + 0.25vw, 0.8125rem);
+  --text-sm:   clamp(0.875rem, 0.82rem + 0.25vw, 0.9375rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.0625rem);
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.40vw, 1.25rem);
+  --text-xl:   clamp(1.3rem,   1.20rem + 0.60vw, 1.5rem);
+  --text-2xl:  clamp(1.6rem,   1.40rem + 1.00vw, 2rem);
+  --text-3xl:  clamp(2.1rem,   1.80rem + 1.50vw, 2.75rem);
+  --text-4xl:  clamp(2.6rem,   2.10rem + 2.50vw, 3.75rem);
+  --text-hero: clamp(2.8rem,   2.20rem + 3.50vw, 4.75rem);
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6.5rem;
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-narrow: 900px;
+  --container-padding: clamp(1rem, 4vw, 2.5rem);
+
+  /* Radius */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast:   180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base:   320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-index */
+  --z-negative:  -1;
+  --z-base:       1;
+  --z-nav:      100;
+  --z-modal:    200;
+  --z-toast:    300;
+}

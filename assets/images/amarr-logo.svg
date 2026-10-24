@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none" role="img" aria-label="Amarr Salon Logo">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D8BA7E" />
+      <stop offset="50%" stop-color="#C9A96E" />
+      <stop offset="100%" stop-color="#9C7736" />
+    </linearGradient>
+  </defs>
+  <!-- Monogram Icon: Minimalist Arch & Scissor Blades Motif -->
+  <g transform="translate(4, 8)">
+    <path d="M24 2C13 2 4 11 4 22V42H8V22C8 13.2 15.2 6 24 6C32.8 6 40 13.2 40 22V42H44V22C44 11 35 2 24 2Z" fill="url(#goldGrad)"/>
+    <circle cx="24" cy="24" r="3.5" fill="url(#goldGrad)" />
+    <path d="M17 38L31 16M31 38L17 16" stroke="url(#goldGrad)" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <!-- Brand Typography -->
+  <text x="64" y="34" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="600" letter-spacing="4" fill="currentColor">AMARR</text>
+  <text x="66" y="49" font-family="'Inter', -apple-system, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.5" fill="#C9A96E">SALON • UNISEX</text>
+</svg>
