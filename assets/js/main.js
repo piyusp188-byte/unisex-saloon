@@ -77,6 +77,16 @@ function initNav() {
       document.body.style.overflow = '';
     }
   });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      navMenu.classList.remove('open');
+      document.body.style.overflow = '';
+      toggle.focus();
+    }
+  });
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
@@ -220,20 +230,34 @@ function initCookieBanner() {
   if (!banner) return;
 
   const COOKIE_KEY = 'amarr_cookie_consent';
-  if (localStorage.getItem(COOKIE_KEY)) return;
+  try {
+    if (localStorage.getItem(COOKIE_KEY)) return;
+  } catch (e) {
+    return;
+  }
 
   setTimeout(() => {
     banner.classList.add('visible');
     document.body.classList.add('cookie-visible');
+    document.documentElement.style.setProperty('--cookie-h', banner.offsetHeight + 'px');
   }, 1800);
 
   const dismiss = (accepted) => {
-    localStorage.setItem(COOKIE_KEY, accepted ? 'accepted' : 'declined');
+    try {
+      localStorage.setItem(COOKIE_KEY, accepted ? 'accepted' : 'declined');
+    } catch (e) {}
     banner.classList.remove('visible');
     document.body.classList.remove('cookie-visible');
+    document.documentElement.style.setProperty('--cookie-h', '0px');
     setTimeout(() => banner.remove(), 600);
   };
 
   if (acceptBtn)  acceptBtn.addEventListener('click',  () => dismiss(true));
   if (declineBtn) declineBtn.addEventListener('click', () => dismiss(false));
+
+  window.addEventListener('resize', () => {
+    if (document.body.classList.contains('cookie-visible') && banner.isConnected) {
+      document.documentElement.style.setProperty('--cookie-h', banner.offsetHeight + 'px');
+    }
+  });
 }
